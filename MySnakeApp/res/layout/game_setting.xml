@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/button_background"
+                android:gravity="center"
+                android:text="@string/level"
+                android:textSize="@dimen/textSize" />
+
+            <RadioGroup
+                android:id="@+id/level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/easy"
+                    style="@style/radio_style"
+                    android:text="@string/easy" />
+
+                <RadioButton
+                    android:id="@+id/medium"
+                    style="@style/radio_style"
+                    android:text="@string/medium" />
+
+                <RadioButton
+                    android:id="@+id/hard"
+                    style="@style/radio_style"
+                    android:text="@string/hard" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/button_background"
+                android:gravity="center"
+                android:text="@string/speed"
+                android:textSize="@dimen/textSize" />
+
+            <Spinner
+                android:id="@+id/selectSpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin"
+                android:entries="@array/snakeSpeed"
+                android:prompt="@string/speed" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/button_background"
+                android:gravity="center"
+                android:text="@string/music"
+                android:textSize="@dimen/textSize" />
+
+            <RadioGroup
+                android:id="@+id/music"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/on"
+                    style="@style/radio_style"
+                    android:text="@string/on" />
+
+                <RadioButton
+                    android:id="@+id/off"
+                    style="@style/radio_style"
+                    android:text="@string/off" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/button_background"
+                android:gravity="center"
+                android:text="@string/is_wall"
+                android:textSize="@dimen/textSize" />
+
+            <RadioGroup
+                android:id="@+id/wall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/yes"
+                    style="@style/radio_style"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/no"
+                    style="@style/radio_style"
+                    android:text="@string/no" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/backOk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/margin"
+                android:background="@drawable/button_1"
+                android:text="@string/backok"
+                android:textSize="@dimen/textSize" />
+
+            <Button
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/margin"
+                android:background="@drawable/button_1"
+                android:text="@string/back"
+                android:textSize="@dimen/textSize" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

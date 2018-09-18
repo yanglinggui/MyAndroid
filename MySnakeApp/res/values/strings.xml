@@ -1,0 +1,42 @@
+<resources>
+
+    <string name="app_name">贪吃蛇</string>
+    <!-- 悬浮按钮 -->
+    <string name="new_game">新游戏</string>
+    <string name="continue_game">继续游戏</string>
+    <string name="setting_game">游戏设置</string>
+    <string name="Description_game">游戏说明</string>
+    <string name="score_game">英雄榜</string>
+    <string name="exit_game">保存退出</string>
+    <string name="level">难度</string>
+    <string name="easy">简单</string>
+    <string name="medium">一般</string>
+    <string name="hard">较难</string>
+    <string name="speed">调节移动速度</string>
+    <string name="music">音乐</string>
+    <string name="on">打开</string>
+    <string name="off">关闭</string>
+    <string name="is_wall">是否穿墙</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="back">返回</string>
+    <string name="backok">确定返回</string>
+    <string name="current_score">当前得分:</string>
+    <string name="highest_score">最高得分:</string>
+    <!-- builder -->
+    <string name="title">游戏结束</string>
+    <string name="ok">确定</string>
+    <string name="cancle">取消</string>
+    <!-- 游戏说明 -->
+    <string name="help">1、基本玩法：用户可以用上、下、左、右键游戏区蛇的运动方向，使之向着有食物的方向运动，并吞吃食物使身体增长，如果蛇在移动过程中,撞到墙壁或身体交叉蛇头撞到自己的身体游戏结束。
+         \n2、调节蛇的运动速度：即用户可以调节蛇的速度来选择不同的难度。
+         \n3、选择关卡功能：简单，蛇一直以用户选定的移动速度移动；一般，蛇的移速在用户选定的移速基础上会随着分数的增加而增加；较难，在一般难度的基础上蛇吃不到食物时移速会急速增加直到吃到食物为止。    </string>
+    <!-- 英雄榜 -->
+    <string name="all">全选</string>
+    <string name="delete">删除</string>
+    <string name="rank">名次</string>
+    <string name="name">姓名</string>
+    <string name="score">得分</string>
+    <string name="select">选择</string>
+
+</resources>

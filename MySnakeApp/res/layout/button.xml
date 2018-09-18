@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <Button
+        android:id="@+id/new_game"
+        style="@style/button_style"
+        android:text="@string/new_game" />
+
+    <Button
+        android:id="@+id/again_game"
+        style="@style/button_style"
+        android:layout_below="@+id/new_game"
+        android:text="@string/continue_game" />
+
+    <Button
+        android:id="@+id/setting_game"
+        style="@style/button_style"
+        android:layout_below="@+id/again_game"
+        android:text="@string/setting_game" />
+
+    <Button
+        android:id="@+id/Description_game"
+        style="@style/button_style"
+        android:layout_below="@+id/setting_game"
+        android:text="@string/Description_game" />
+
+    <Button
+        android:id="@+id/score_game"
+        style="@style/button_style"
+        android:layout_below="@+id/Description_game"
+        android:text="@string/score_game" />
+
+    <Button
+        android:id="@+id/exit_game"
+        style="@style/button_style"
+        android:layout_below="@+id/score_game"
+        android:text="@string/exit_game" />
+
+</RelativeLayout>
