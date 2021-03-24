@@ -1,0 +1,6 @@
+include ':testsubcomponent'
+include ':test3'
+include ':test2'
+include ':app:test1'
+include ':app'
+rootProject.name = "MyDagger2Test"
