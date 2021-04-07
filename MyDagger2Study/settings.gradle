@@ -1,0 +1,3 @@
+include ':daggerdemo'
+include ':app'
+rootProject.name = "MyDagger2Study"
