@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">AndroidBasic</string>
+    <string name="android_system_level">应用程序层:   基于Android系统API构建的app,包括系统应用(如SystemUI、dialer等)与3rd应用。\n\n
+    应用程序框架层:   为应用程序提供了用以访问核心功能的API框架及各种服务和管理工具，包括界面管理、数据访问、应用层的消息传递、应用包的管理、电话管理、定位管理等功能。
+        视图(Views)、内容提供器(ContentProviders)、资源管理器(ResourceManager)、通知管理器(NotificationManager)、活动管理器( ActivityManager)。\n\n
+    系统库和Android运行环境:   包含 C/C++ 库(系统C语言库、媒体库、界面管理、SQLite等)，以供Android系统的各个组件使用；核心库和Dalvik虚拟机\n\n
+    Linux内核:   Android 基于Linux提供核心系统服务，例如安全、内存管理、进程管理、网络堆栈、驱动模型。除了标准的Linux内核外，Android还增加了内核的驱动程序，
+        如Binder(IPC) 驱动、显示驱动、输入设备驱动、音频系统驱动、摄像头驱动、WiFi驱动、蓝牙驱动、电源管理。</string>
+    <string name="title_activity_nav_test">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>>
+
+</resources>
