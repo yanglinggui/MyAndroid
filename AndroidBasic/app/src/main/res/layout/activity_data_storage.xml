@@ -4,20 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TestActivity">
+    tools:context=".basicknowledge.DataStorageActivity">
 
-    <!--- <SeekBar
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintLeft_toLeftOf="parent"
-         app:layout_constraintRight_toRightOf="parent"
-         app:layout_constraintTop_toTopOf="parent"
-         />-->
-
-    <com.ylg.androidbasic.test.MyAnimView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/data_storage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context=".basicknowledge.AndroidComponentsActivity">
 
     <LinearLayout
@@ -11,51 +11,55 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/fragment"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/btna"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0.8"
             android:onClick="onClick"
-            android:padding="2dp"
+            android:padding="0dp"
             android:text="Activity" />
 
         <Button
             android:id="@+id/btns"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0.8"
             android:onClick="onClick"
-            android:padding="2dp"
+            android:padding="0dp"
             android:text="Service" />
 
         <Button
             android:id="@+id/btnb"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="onClick"
-            android:padding="2dp"
+            android:padding="0dp"
             android:text="Broadcast" />
 
         <Button
             android:id="@+id/btnc"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="1.4"
             android:onClick="onClick"
-            android:padding="2dp"
+            android:padding="0dp"
             android:text="ContentProvider" />
     </LinearLayout>
-<FrameLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/fragment"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/btn"/>
+
+    <FrameLayout
+        android:id="@+id/fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

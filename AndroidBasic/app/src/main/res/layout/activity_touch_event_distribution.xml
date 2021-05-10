@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ylg.androidbasic.view.MyLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F0F0"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.ylg.androidbasic.view.MyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#F0F0AF"
+        android:text="@string/touch_event" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/touch_event" />
+</com.ylg.androidbasic.view.MyLinearLayout>

@@ -9,6 +9,47 @@
     <string name="title_activity_nav_test">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>>
-
+    <string name="title_notifications">Notifications</string>
+    <string name="android_activityinfo">activity启动模式\nstandard:    标准模式，不管当前task的栈顶是什么情况,都会构造一个新的Activity实例放到目标Task的栈顶;\n\n
+        singleTop:    栈顶复用模式，task栈顶的activity是当前activity，则调用这个activity的newInstance()方法启动该activity，否则就构造新的activity放到栈顶;\n\n
+        singleTask:    栈内复用模式，在同一个应用程序中启动他的时候，若Activity不存在，则会在当前task创建一个新的实例，若存在，则会把task中在其之上的其它Activity destory掉并调用它的onNewIntent方法;\n\n
+        singleInstance:    单一实例模式，这是一种加强的singleTask模式，具有此种模式的Activity只能单独地位于一个任务栈中，且此任务栈中只有唯一一个实例;\n\n\n</string>
+    <string name="process_level">进程优先级划:\n
+1)前台进程:    应用程序存在Activity正位于前台，可见并可控\n
+2)可见进程:    应用程序存在Activity处于局部可见状态，即局部可见却不可控\n
+3)服务进程:    应用程序存在正在运行的Service\n
+4)后台进程:    应用程序的所有Activity均被置于后台，没有任何Activity可见\n
+5)空进程:    已经退出的应用程序</string>
+    <string name="broadcastinfo">
+        普通广播（Normal Broadcast）、系统广播（System Broadcast）、有序广播（Ordered Broadcast）、粘性广播（Sticky Broadcast）、App应用内广播（Local Broadcast）</string>
+    <string name="contentprovider">ContentProvider的底层由Binder机制实现，辅助类有ContentUris、UriMatcher、ContentObserver。实现ContentProvider的增删改查实现数据管理与传递。
+可使用ContentObserver监听数据的变化。</string>
+    <string name="layoutinfo">
+        LinearLayout(线性布局)、RelativeLayout(相对布局)、TableLayout(表格布局)、FrameLayout(帧布局)、GridLayout(网格布局)、AbsoluteLayout(绝对布局)、ConstraintLayout(约束布局)</string>
+    <string name="data_storage">1)SharedPreference存储:    是一种轻量级的数据存储,通过key--value键值对方式把数据保存到xml文件。使用XmlPullParser解析，会占用内存，键值对不宜过长。\n\n
+2)文件存储:    指手机内外存储卡，可用来存放大文件数据，如文本、图片、音频等。\n\n
+3)SQLite数据库:    轻量级嵌入式数据库引擎，支持SQL语言，占用内存小，速度快(数据量不是太大的时候)。\n\n
+4)ContentProvider:    主要用于不同的程序之间实现数据共享的功能。\n\n
+5)网络存储
+</string>
+    <string name="process_and_thread">程序：为了完成特定任务，用某种语言编写的一组指令集合(一组静态代码)\n\n
+        进程：运行中的程序，系统调度与资源分配的一个独立单位，操作系统会 为每个进程分配一段内存空间！程序的依次动态执行，经历代码的加载，执行， 执行完毕的完整过程！\n\n
+        线程：比进程更小的执行单元，每个进程可能有多条线程，线程需要放在一个 进程中才能执行，线程由程序负责管理，而进程则由系统进行调度！\n\n
+        多线程的理解：并行执行多个条指令，将CPU时间片按照调度算法分配给各个 线程，实际上是分时执行的，只是这个切换的时间很短，用户感觉到"同时"而已！\n\n
+        创建线程的三种方式: 继承Thread类、实现Runnable接口、实现Callable接口
+</string>
+    <string name="data_parse">XML解析\n\n\n
+        jiSAX解析:    使用流式处理的方式，它并不记录所读内容的相关信息。它是一种以事件为驱动的XML API，解析速度快，占用内存少。使用回调函数来实现。 缺点是不能倒退。\n\n
+        DOM解析:    是一种用于XML文档的对象模型，可用于直接访问XML文档的各个部分。它是一次性全部将内容加载在内存中，生成一个树状结构,它没有涉及回调和复杂的状态管理。 缺点是加载大文档时效率低下。\n\n
+        Pull解析:    与SAX解析相似，节点触发事件是数字。\n\n\n\n
+        JSON解析:    JSON(Android原生)、GSON (Google)、FastJSON (阿里)、FastJson
+    </string>
+    <string name="animationinfo">逐帧动画(Frame):    按顺序播放一组图片，创建animation-list xml文件或着AnimationDrawable.addFrame添加图片，在代码中调用start()以及stop()开始或停止播放动画。\n\n
+        补间动画(Tween):    补间动画效果分为AlphaAnimation(透明，对应alpha标签)、ScaleAnimation(渐变，对应scale)、TranslateAnimation(平移，对应translate标签)、RotateAnimation(旋转,对应rotate标签)、AnimationSet(前面四种的组合，对应set标签)；
+        补间动画有Interpolator(插值器)用来控制动画的变化速度和效果，如快慢、跳跃、回弹等；动画状态的监听实现AnimationListener接口；补间动画无法改变view的属性，如view平移后的终点位置是无法响应点击事件的。\n\n
+        属性动画(property animation):    相关API包括Animator、ValueAnimator、ObjectAnimator、AnimatorSet、TypeEvaluator(估值器)、Interpolator(插值器);其中Interpolator中返回动画当前进度百分比传人到TypeEvaluator中，TypeEvaluator根据这个百分比来计算当前的动画属性值具体应该是多少;属性动画记录数据变化过程，通过回调view内置方法实现动画效果。</string>
+    <string name="custom_extends_view">extends View的绘制基本由measure()(测量View的宽高,常用方法measure(),setMeasuredDimension(),onMeasure())、
+        layout()(计算当前View以及子View的位置，常用方法layout(),onLayout(),setFrame())、draw()(视图的绘制工作,常用方法draw(),onDraw())这个三个函数完成。</string>
+    <string name="custom_extends_viewgroup">extends ViewGroup需要实现onMeasure(...)(测量view的大小)和onLayout(...)(控制子view的显示)方法。</string>
+    <string name="touch_event">Activity: dispatchTouchEvent、onTouchEvent; ViewGroup: dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent; View: dispatchTouchEvent、onTouchEvent;</string>
 </resources>
