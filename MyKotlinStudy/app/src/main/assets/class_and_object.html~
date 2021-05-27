@@ -1,0 +1,60 @@
+<!--
+  ~ Copyright (C) 2015 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<html>
+<head>
+    <style>
+         body { font-family: sans-serif; } pre { background-color: #eeeeee; padding: 1em; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+<h3>类定义</h3>
+<p>Kotlin类包含：构造函数和初始化代码块、函数、属性、内部类、对象声明等。</p>
+<p>使用关键字 class 声明类，后面紧跟类名，如下</p>
+<pre>
+class ClassName {
+    // 属性
+    // 成员函数
+    // 初始化代码段
+    ... .. ...
+}
+</pre>
+<h3>主构造函数</h3>
+<p>类可以有零个或一个主构造器，用constructor关键字修饰，主构造器中不能包含任何代码，初始化代码可以放在由init修饰的初始化代码段中。
+主构造器的参数可以在初始化代码段中使用,主构造函数参数被var或val修饰时会被默认为类的属性。</p>
+<p>主构造函数声明</p>
+<pre>
+class ClassName constructor(val firstName: String) {}
+</pre>
+<p>如果主构造函数没有任何注解或者指示符，constructor关键字可以被省略</p>
+<pre>
+class ClassName(val firstName: String) {}
+</pre>
+<p>如果主构造函数注解或者可见的指示符,constructor是必须的</p>
+<pre>
+class ClassName public @Inject constructor(val firstName: String) {}
+</pre>
+<h3>次构造函数</h3>
+<p>次构造函数也是constructor修饰，如果类有主构造函数，每个次构造函数都要，或直接或间接通过另一个次构造函数代理主构造函数。在同一个类中代理另一个构造函数使用this关键字:</p>
+<pre>
+class Person(val name: String) {
+    constructor (name: String, age:Int) : this(name) {
+        // 初始化...
+    }
+}
+</pre>
+</body>
+</html>

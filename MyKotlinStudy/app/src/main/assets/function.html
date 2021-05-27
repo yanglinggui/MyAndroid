@@ -1,0 +1,177 @@
+<!--
+  ~ Copyright (C) 2015 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<html>
+<head>
+    <style>
+         body { font-family: sans-serif; } pre { background-color: #eeeeee; padding: 1em; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+<h3>Kotlin函数声明模板</h3>
+<p>
+    Kotlin中是通过关键字fun声明函数。和变量一样，返回值类型放在名称后面，并用":"冒号分开。Kotlin函数默认修饰符public，且可以在文件顶层声明。
+    当函数不需要返回任何值时，可以将返回值类型定义成Unit，也可以不显式返回。</p>
+<pre>
+    <code><span><span>fun</span> 函数名<span>(变量)</span></span>: 返回值类型  {
+    }</code>
+</pre>
+<h3>函数参数带默认值</h3>
+<pre><code class="language-kotlin hljs"><span class="hljs-function"><span
+        class="hljs-keyword">fun</span> <span class="hljs-title">setValue</span><span
+        class="hljs-params">(x: <span class="hljs-type">Int</span>, y: <span
+        class="hljs-type">Int</span> = <span class="hljs-number">10</span>)</span></span>: <span
+        class="hljs-built_in">Int</span> {
+    retunr x + y
+}
+setValue(<span class="hljs-number">10</span>) -----&gt; <span class="hljs-number">20</span>
+setValue(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>) -----&gt; <span
+            class="hljs-number">30</span>
+</code></pre>
+<h3>单表达式函数</h3>
+<p>若函数体只是单个表达式时，可以省略花括号并用"=" 指定代码体</p>
+<pre><code class="language-kotlin hljs"><span class="hljs-function"><span
+        class="hljs-keyword">fun</span> <span class="hljs-title">setValue</span><span
+        class="hljs-params">(x: <span class="hljs-type">Int</span>, y: <span
+        class="hljs-type">Int</span>)</span></span> = x + y
+</code></pre>
+<h3>不定长参数函数</h3>
+<p>有很多场景函数的变量的个数是不确定。Java是通过三个点"..."表示不定个数的参数。而Kotlin需要通过关键字vararg定义参数，表示函数的参数个数不确定。</p>
+<pre><code class="language-kotlin hljs"><span class="hljs-function"><span
+        class="hljs-keyword">fun</span> <span class="hljs-title">mathPlus</span><span
+        class="hljs-params">(<span class="hljs-keyword">vararg</span> arguments: <span
+        class="hljs-type">Any</span>)</span></span>: Any {
+    <span class="hljs-keyword">var</span> result: BigDecimal = BigDecimal.ZERO
+    arguments.map {
+        result = result.plus(BigDecimal(it.toString()))
+    }
+    <span class="hljs-keyword">return</span> result
+}
+mathPlus(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span
+            class="hljs-number">3</span>,<span class="hljs-number">4.5</span>) ------&gt; <span
+            class="hljs-number">10.5</span>
+</code></pre>
+<h3>尾递归函数</h3>
+<p>Kotlin支持尾递归的编程风格。<strong>允许一些算法可以通过循环而不是递归解决问题，避免堆栈溢出导致的系统不稳定</strong>。Kotlin还提供了尾递归优化的关键字tailrec。但要符合
+    tailrec 修饰符的条件，需要函数必须将其自身调用作为它执行的最后一个操作。我们用求阶乘的代码演示尾递归。</p>
+<pre><code class="language-kotlin hljs"><span
+        class="hljs-comment">// 尾递归，可以保证堆栈不溢出，但是还要考虑数据类型的取值范围</span>
+<span class="hljs-keyword">tailrec</span> <span class="hljs-function"><span
+            class="hljs-keyword">fun</span> <span class="hljs-title">fibolaAlgorithm</span><span
+            class="hljs-params">(num: <span class="hljs-type">Int</span>, result: <span
+            class="hljs-type">Int</span>)</span></span>: <span class="hljs-built_in">Int</span> {
+    println(<span class="hljs-string">"剩余递归次数 : <span
+            class="hljs-variable">$num</span> \t 计算结果: <span
+            class="hljs-variable">$result</span>"</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">if</span> (num == <span
+            class="hljs-number">0</span>) {
+        <span class="hljs-number">1</span>
+    } <span class="hljs-keyword">else</span> {
+        fibolaAlgorithm(num - <span class="hljs-number">1</span>, result + num)
+    }
+}
+</code></pre>
+<h3>高阶函数</h3>
+<p>
+    高阶函数是Kotlin的一大亮点，高阶函数是可以将函数用作参数或返回值的函数。下面代码中，forEach是函数，println也是一个方法，通过双冒号将函数作为一个参数传递。这种用法在Kotlin中非常常见。</p>
+<pre><code class="language-kotlin hljs"><span class="hljs-comment">// 函数作为参数</span>
+<span class="hljs-function"><span class="hljs-keyword">fun</span> <span
+        class="hljs-title">paramFun</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">val</span> list = listOf(<span class="hljs-number">1</span>, <span
+            class="hljs-number">2</span>)
+    list.forEach(::println)
+}
+<span class="hljs-comment">// 函数作为返回值</span>
+<span class="hljs-function"><span class="hljs-keyword">fun</span> <span
+        class="hljs-title">returnFun</span><span class="hljs-params">()</span></span>: (<span
+            class="hljs-built_in">Int</span>, <span class="hljs-built_in">Int</span>) -&gt; <span
+            class="hljs-built_in">Int</span> {
+    <span class="hljs-keyword">return</span> { j, i -&gt; j + i }
+}
+println(returnFun().invoke(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>))
+</code></pre>
+<h3>闭包函数</h3>
+<p>闭包就是能够读取其他函数内部变量的函数。当我们的程序希望读取到函数的内部变量，或者希望被访问的变量保存在内存中。就需要用到闭包。这下这段代码算是比较典型的闭包函数。</p>
+<pre><code class="language-kotlin hljs"><span class="hljs-function"><span
+        class="hljs-keyword">fun</span> <span class="hljs-title">closureMethod</span><span
+        class="hljs-params">(i: <span class="hljs-type">Int</span>)</span></span>: () -&gt; <span
+        class="hljs-built_in">Int</span> {
+    <span class="hljs-keyword">var</span> memoryValue = <span class="hljs-number">1</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-title">fun</span><span
+            class="hljs-params">()</span></span>: <span class="hljs-built_in">Int</span> {
+        <span class="hljs-keyword">return</span> i + memoryValue++
+    }
+}
+<span class="hljs-keyword">val</span> closure = closureMethod(<span class="hljs-number">0</span>)
+println(closure()) ------&gt; <span class="hljs-number">1</span>
+println(closure()) ------&gt; <span class="hljs-number">2</span>
+</code></pre>
+<h3>Kotlin Lamdba表达式</h3>
+<p>Lamdba语法结构</p>
+<pre><code class="language-kotlin hljs"><span class="hljs-keyword">val</span>/<span
+        class="hljs-keyword">var</span> 变量名: (参数类型，参数类型，...) -&gt; 返回值类型 = { 参数<span
+        class="hljs-number">1</span>，参数<span class="hljs-number">2</span>，... -&gt; 代码块 }
+</code></pre>
+<pre>it关键字：用于Lamdba表达式是单参数时</pre>
+<pre class="hljs nginx"><span class="hljs-attribute">val</span>&nbsp;selectedPerson&nbsp;=&nbsp;people.maxBy({&nbsp;<span
+        class="hljs-attribute">person</span>&nbsp;-&gt;&nbsp;person.age&nbsp;})</pre>
+<p>等效于</p>
+<pre class="hljs kotlin"><span class="hljs-keyword">val</span>&nbsp;selectedPerson&nbsp;=&nbsp;people.maxBy({&nbsp;it.age&nbsp;})</pre>
+<h3>中缀函数(infix)</h3>
+<ul>
+    <li><p>是<em>成员函数</em>（或<em>扩展函数</em>）<em>。</em></p></li>
+    <li><p>只有一个参数。</p></li>
+    <li><p>标有 infix 关键字。</p></li>
+</ul>
+<pre class="kotlin hljs"><span class="hljs-class"><span class="hljs-keyword">class</span>&nbsp;<span
+        class="hljs-title">Structure</span></span>()&nbsp;{
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-keyword">infix</span>&nbsp;<span
+            class="hljs-function"><span class="hljs-keyword">fun</span>&nbsp;<span
+            class="hljs-title">createPyramid</span><span class="hljs-params">(rows:&nbsp;<span
+            class="hljs-type">Int</span>)</span></span>&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-keyword">var</span>&nbsp;k&nbsp;=&nbsp;<span
+            class="hljs-number">0</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+            class="hljs-keyword">for</span>&nbsp;(i&nbsp;<span
+            class="hljs-keyword">in</span>&nbsp;<span class="hljs-number">1</span>..rows)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k&nbsp;=&nbsp;<span
+            class="hljs-number">0</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-keyword">for</span>&nbsp;(space&nbsp;<span
+            class="hljs-keyword">in</span>&nbsp;<span class="hljs-number">1</span>..rows-i)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span
+            class="hljs-string">"&nbsp;&nbsp;"</span>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-keyword">while</span>&nbsp;(k&nbsp;!=&nbsp;<span
+            class="hljs-number">2</span>*i-<span class="hljs-number">1</span>)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span
+            class="hljs-string">"*&nbsp;"</span>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;++k
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;println()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fun</span>&nbsp;<span
+        class="hljs-title">main</span><span class="hljs-params">(args:&nbsp;<span class="hljs-type">Array</span>&lt;<span
+        class="hljs-type">String</span>&gt;)</span></span>&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-keyword">val</span>&nbsp;p&nbsp;=&nbsp;Structure()
+&nbsp;&nbsp;&nbsp;&nbsp;p&nbsp;createPyramid&nbsp;<span class="hljs-number">4</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+            class="hljs-comment">//&nbsp;p.createPyramid(4)</span>
+}</pre>
+</body>
+</html>
