@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AndroidNotificationTest</string>
+    <string name="content_title">测试标题</string>
+    <string name="content">测试通知内容;测试通知内容;测试通知内容;测试通知内容;测试通知内容;测试通知内容;测试通知内容;测试通知内容;测试通知内容;测试通知内容;测试通知内容;测试通知内容;测试通知内容;测试通知内容;测试通知内容;测试通知内容;测试通知内容;测试通知内容;测试通知内容;测试通知内容</string>
+</resources>

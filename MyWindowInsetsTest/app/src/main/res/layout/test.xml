@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--定义一个表格布局，指定第2 列可收缩，第3 列隐藏，第4列可拉伸-->
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/table01"
+        android:shrinkColumns="1"
+        android:collapseColumns="2"
+        android:stretchColumns="3">
+
+        <!--直接添加一个按钮，会直接占用一行-->
+        <Button android:id="@+id/ok1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="独自一行的按钮ok1"/>
+
+
+        <!--在TableRow添加加一个按钮，会添加一列-->
+        <TableRow>
+            <Button android:id="@+id/ok2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="普通按钮"/>
+            <Button android:id="@+id/ok3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="shrink收缩按钮"/>
+            <Button android:id="@+id/ok4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="collapsed隐藏按钮"/>
+            <Button android:id="@+id/ok5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="stretch拉伸按钮"/>
+
+        </TableRow>
+    </TableLayout>
+</LinearLayout>
+

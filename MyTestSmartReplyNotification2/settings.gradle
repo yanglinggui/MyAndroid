@@ -1,0 +1,2 @@
+rootProject.name = "MyTestSmartReplyNotification"
+include ':app'
